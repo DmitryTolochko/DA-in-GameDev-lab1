@@ -1,14 +1,14 @@
 # АНАЛИЗ ДАННЫХ И ИСКУССТВЕННЫЙ ИНТЕЛЛЕКТ [in GameDev]
 Отчет по лабораторной работе #1 выполнил(а):
-- Иванова Ивана Варкравтовна
-- РИ000024
+- Толочко Дмитрий Александрович
+- РИ-210944
 Отметка о выполнении заданий (заполняется студентом):
 
 | Задание | Выполнение | Баллы |
 | ------ | ------ | ------ |
-| Задание 1 | # | 60 |
-| Задание 2 | # | 20 |
-| Задание 3 | # | 20 |
+| Задание 1 | * | 60 |
+| Задание 2 | * | 20 |
+| Задание 3 | * | 20 |
 
 знак "*" - задание выполнено; знак "#" - задание не выполнено;
 
@@ -35,12 +35,22 @@
 - ✨Magic ✨
 
 ## Цель работы
-Ознакомиться с основными операторами зыка Python на примере реализации линейной регрессии.
+Ознакомиться с основными операторами языка Python на примере реализации линейной регрессии.
 
 ## Задание 1
+### Написать программы Hello World на Python и Unity
+- Для Python в отчёте привести скриншоты с демонстрацией сохранения документа google.collab на свой диск с запуском программы, выводящей сообщение Hello world.
+![image](https://user-images.githubusercontent.com/100460661/192241133-1268a5e3-5f17-4c1c-8e2c-d861d4d667df.png)
+![image](https://user-images.githubusercontent.com/100460661/192241208-994970c6-1190-4ae8-a91c-4cc8977c3a75.png)
+
+![image](https://user-images.githubusercontent.com/100460661/192250872-906bf264-f4c8-464f-b192-731d6e1764aa.png)
+![image](https://user-images.githubusercontent.com/100460661/192250942-43023940-bc4f-4a16-b459-87e7d93a4e3e.png)
+
+
+## Задание 2
 ### Пошагово выполнить каждый пункт раздела "ход работы" с описанием и примерами реализации задач
 Ход работы:
-- Произвести подготовку данных для работы с алгоритмом линейной регрессии. 10 видов данных были установлены случайным образом, и данные находились в линейной зависимости. Данные преобразуются в формат массива, чтобы их можно было вычислить напрямую при использовании умножения и сложения.
+1) Произвести подготовку данных для работы с алгоритмом линейной регрессии. 10 видов данных были установлены случайным образом, и данные находились в линейной зависимости. Данные преобразуются в формат массива, чтобы их можно было вычислить напрямую при использовании умножения и сложения.
 
 ```py
 
@@ -62,68 +72,65 @@ plt.scatter(x,y)
 
 ```
 
-- Определите связанные функции. Функция модели: определяет модель линейной регрессии wx+b. Функция потерь: функция потерь среднеквадратичной ошибки. Функция оптимизации: метод градиентного спуска для нахождения частных производных w и b.
+![image](https://user-images.githubusercontent.com/100460661/192266360-56f2f840-c419-4401-a103-32595ee164e8.png)
 
 
-## Задание 2
-### Должна ли величина loss стремиться к нулю при изменении исходных данных? Ответьте на вопрос, приведите пример выполнения кода, который подтверждает ваш ответ.
+2) Определите связанные функции. Функция модели: определяет модель линейной регрессии wx+b. Функция потерь: функция потерь среднеквадратичной ошибки. Функция оптимизации: метод градиентного спуска для нахождения частных производных w и b.
 
-- Перечисленные в этом туториале действия могут быть выполнены запуском на исполнение скрипт-файла, доступного [в репозитории](https://github.com/Den1sovDm1triy/hfss-scripting/blob/main/ScreatingSphereInAEDT.py).
-- Для запуска скрипт-файла откройте Ansys Electronics Desktop. Перейдите во вкладку [Automation] - [Run Script] - [Выберите файл с именем ScreatingSphereInAEDT.py из репозитория].
+![image](https://user-images.githubusercontent.com/100460661/192269147-205f060e-63fc-4a80-826b-5e5c4992b369.png)
 
-```py
+3) Начать итерацию.
+### Шаг 1 Инициализация и модель итеративной оптимизации
 
-import ScriptEnv
-ScriptEnv.Initialize("Ansoft.ElectronicsDesktop")
-oDesktop.RestoreWindow()
-oProject = oDesktop.NewProject()
-oProject.Rename("C:/Users/denisov.dv/Documents/Ansoft/SphereDIffraction.aedt", True)
-oProject.InsertDesign("HFSS", "HFSSDesign1", "HFSS Terminal Network", "")
-oDesign = oProject.SetActiveDesign("HFSSDesign1")
-oEditor = oDesign.SetActiveEditor("3D Modeler")
-oEditor.CreateSphere(
-	[
-		"NAME:SphereParameters",
-		"XCenter:="		, "0mm",
-		"YCenter:="		, "0mm",
-		"ZCenter:="		, "0mm",
-		"Radius:="		, "1.0770329614269mm"
-	], 
-)
+![image](https://user-images.githubusercontent.com/100460661/192276821-c1756b55-a0d2-4a22-8def-bb17113e4a86.png)
 
-```
+### Шаг 2 На второй итерации отображаются значения параметров, значения потерь и эффекты визуализации после итерации
+
+![image](https://user-images.githubusercontent.com/100460661/192276987-d43c4408-5d0e-45bf-a3bc-1a39125b1880.png)
+
+### Шаг 3 Третья итерация показывает значения параметров, значения потерь и визуализацию после итерации
+
+![image](https://user-images.githubusercontent.com/100460661/192277144-c9d3be83-591d-4224-9465-f44a990c55dc.png)
+
+### Шаг 4 На четвертой итерации отображаются значения параметров, значения потерь и эффекты визуализации
+
+![image](https://user-images.githubusercontent.com/100460661/192277197-4c2664ab-2136-4e06-820b-ff7f8f779996.png)
+
+### Шаг 5 Пятая итерация показывает значение параметра, значение потерь и эффект визуализации после итерации
+
+![image](https://user-images.githubusercontent.com/100460661/192277273-0c592663-2dd2-40c5-8b63-cf01402f3555.png)
+
+### Шаг 6 10000-я итерация, показывающая значения параметров, потери и визуализацию после итерации
+
+![image](https://user-images.githubusercontent.com/100460661/192277337-fb3d2673-f4cb-49af-b992-6111b7c048eb.png)
 
 ## Задание 3
+### Должна ли величина loss стремиться к нулю при изменении исходных данных? Ответьте на вопрос, приведите пример выполнения кода, который подтверждает ваш ответ.
+
+Да, loss будет уменьшаться, то есть стремиться к нулю. Она зависит от a и b,а они в свою очередь зависят от величины times. Если мы увеличим times, то loss уменьшится.
+
+1) ![image](https://user-images.githubusercontent.com/100460661/192295499-1c89efff-64e4-4079-ad7b-f55f0c408093.png)
+При times = 100, loss = 1298,5
+
+2) ![image](https://user-images.githubusercontent.com/100460661/192295835-86a9316a-ad9f-4df1-b0ae-1f203c2dac92.png)
+При times = 1000, loss = 193.58
+
+3) ![image](https://user-images.githubusercontent.com/100460661/192296070-05e41a8a-175f-47ca-95a1-468ccc0f064f.png)
+При times = 100000, loss = 188.8
+
 ### Какова роль параметра Lr? Ответьте на вопрос, приведите пример выполнения кода, который подтверждает ваш ответ. В качестве эксперимента можете изменить значение параметра.
 
-- Перечисленные в этом туториале действия могут быть выполнены запуском на исполнение скрипт-файла, доступного [в репозитории](https://github.com/Den1sovDm1triy/hfss-scripting/blob/main/ScreatingSphereInAEDT.py).
-- Для запуска скрипт-файла откройте Ansys Electronics Desktop. Перейдите во вкладку [Automation] - [Run Script] - [Выберите файл с именем ScreatingSphereInAEDT.py из репозитория].
+От параметра Lr зависит угол прямой на графике
 
-```py
+1) ![image](https://user-images.githubusercontent.com/100460661/192300176-ef6f4b05-4ef8-46a2-8f90-11c780221593.png)
+При Lr = 0.000001 и times = 100
 
-import ScriptEnv
-ScriptEnv.Initialize("Ansoft.ElectronicsDesktop")
-oDesktop.RestoreWindow()
-oProject = oDesktop.NewProject()
-oProject.Rename("C:/Users/denisov.dv/Documents/Ansoft/SphereDIffraction.aedt", True)
-oProject.InsertDesign("HFSS", "HFSSDesign1", "HFSS Terminal Network", "")
-oDesign = oProject.SetActiveDesign("HFSSDesign1")
-oEditor = oDesign.SetActiveEditor("3D Modeler")
-oEditor.CreateSphere(
-	[
-		"NAME:SphereParameters",
-		"XCenter:="		, "0mm",
-		"YCenter:="		, "0mm",
-		"ZCenter:="		, "0mm",
-		"Radius:="		, "1.0770329614269mm"
-	], 
-)
-
-```
+2) ![image](https://user-images.githubusercontent.com/100460661/192300512-3c58ac9a-73ec-453e-b13f-c468f4db9231.png)
+При Lr = 0.0001 и times = 100
 
 ## Выводы
 
-Абзац умных слов о том, что было сделано и что было узнано.
+В ходе данной работы я написал программу Hello world на питоне в Google Collab и на C# в Unity. Я познакомился с алгоритмом линейной регрессии, осуществил функции модели, потерь и оптимизации. Я провёл эксперимент над переменными Lr и loss и выявил их зависимости.
 
 | Plugin | README |
 | ------ | ------ |
